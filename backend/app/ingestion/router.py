@@ -17,10 +17,10 @@ ALLOWED = (".csv", ".xlsx", ".xls")
 INLINE_ERRORS = 50
 
 
-def _report(db: Session, run: IngestionRun) -> IngestionReport:
-    first = db.scalars(
+def _report(db: Session, run: IngestionRun, inline: int = INLINE_ERRORS) -> IngestionReport:
+    first = [] if inline <= 0 else db.scalars(
         select(IngestionError).where(IngestionError.run_id == run.id)
-        .order_by(IngestionError.id).limit(INLINE_ERRORS)
+        .order_by(IngestionError.id).limit(inline)
     ).all()
     return IngestionReport(
         run_id=run.id, sheet=run.sheet, filename=run.filename, status=run.status,
@@ -29,6 +29,22 @@ def _report(db: Session, run: IngestionRun) -> IngestionReport:
         errors_total=run.errors_total, created_at=run.created_at,
         errors=[IngestionErrorOut.model_validate(e) for e in first],
     )
+
+
+@router.get("/runs", response_model=list[IngestionReport])
+def list_runs(limit: int = 20, db: Session = Depends(get_db)):
+    """Upload history, newest first. No inline errors; use /runs/{id}/errors."""
+    limit = max(1, min(limit, 100))
+    runs = db.scalars(select(IngestionRun).order_by(IngestionRun.id.desc()).limit(limit)).all()
+    return [_report(db, r, inline=0) for r in runs]
+
+
+@router.get("/runs/{run_id}", response_model=IngestionReport)
+def get_run(run_id: int, db: Session = Depends(get_db)):
+    run = db.get(IngestionRun, run_id)
+    if run is None:
+        raise HTTPException(status_code=404, detail="Ingestion run not found")
+    return _report(db, run)
 
 
 # TODO: add the auth dependency from Dev 1/6 here (admin or analyst role only)

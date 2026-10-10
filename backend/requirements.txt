@@ -7,8 +7,13 @@ SQLAlchemy==2.0.40
 psycopg[binary]==3.2.6
 anyio==4.9.0
 
+# Ingestion (Dev 2)
+pandas==2.3.3
+openpyxl==3.1.5
+python-multipart==0.0.20
+
 # Testing
 pytest==8.3.5
 httpx==0.28.1
 
-# G2 will add: PyJWT, bcrypt. ML gate will add: scikit-learn, pandas.
+# G2 will add: PyJWT, bcrypt. ML gate will add: scikit-learn.
