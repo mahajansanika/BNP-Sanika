@@ -1,0 +1,14 @@
+{
+  "calc_date": "2026-09-30",
+  "currency": "SGD",
+  "location": "Singapore",
+  "approach": "deterministic",
+  "run_id": "fixture-sg-sgd-20260930",
+  "buckets": [
+    { "bucket": "0-1M",  "assets": 1250000.00, "liabilities": 1840000.50, "net_gap": -590000.50, "transaction_count": 412 },
+    { "bucket": "1-3M",  "assets": 2310500.75, "liabilities": 1975000.25, "net_gap": 335500.50,  "transaction_count": 268 },
+    { "bucket": "3-12M", "assets": 4820000.00, "liabilities": 3610250.40, "net_gap": 1209749.60, "transaction_count": 195 },
+    { "bucket": "1-5Y",  "assets": 6150000.30, "liabilities": 4280000.00, "net_gap": 1870000.30, "transaction_count": 87 },
+    { "bucket": ">5Y",   "assets": 3900000.00, "liabilities": 1525000.10, "net_gap": 2374999.90, "transaction_count": 23 }
+  ]
+}
