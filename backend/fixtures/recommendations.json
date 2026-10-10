@@ -1,0 +1,14 @@
+[
+  {
+    "condition": "shortfall",
+    "text_template": "Raise short-term funding – {currency} {amount}"
+  },
+  {
+    "condition": "surplus",
+    "text_template": "Invest surplus in 6M Treasury – {currency} {amount}"
+  },
+  {
+    "condition": "balanced",
+    "text_template": "Liquidity balanced – no action required"
+  }
+]
