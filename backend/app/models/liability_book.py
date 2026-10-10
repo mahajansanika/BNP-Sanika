@@ -1,16 +1,7 @@
-"""`liability_book` table — G1 STUB. Owner: Dev 2.
-
-Only the primary key is defined so the table name is reserved, the model is
-importable and `Base.metadata` has no conflicts. Columns are intentionally
-NOT invented here: the owner adds them once the schema is agreed (see
-docs/schema.md). Store money as `Numeric` (Decimal), never Float.
-"""
-from sqlalchemy.orm import Mapped, mapped_column
-
+"""`liability_book` table. Owner: Dev 2."""
 from app.core.db import Base
+from app.models.book_common import BookColumns
 
 
-class LiabilityBook(Base):
+class LiabilityBook(BookColumns, Base):
     __tablename__ = "liability_book"
-
-    id: Mapped[int] = mapped_column(primary_key=True)

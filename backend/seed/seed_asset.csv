@@ -1,0 +1,11 @@
+Transaction_ID,Entity,Location,Customer_ID,Loan_Amount,Currency,Transaction_Date,Maturity_Date,Interest_Rate_Pct,Market_Interest_Rate_Pct,Loan_Type,Customer_Segment,Client_Rating
+AST-006273,IBC HongKong,Hong Kong,CUS-04974,9056000,USD,2026-09-30,2030-10-10,4.8554,5.25,Loan-Type-C,Institutional,1
+AST-006284,IBC SA,Paris,CUS-01900,11145000,EUR,2026-10-09,2027-04-02,5.3107,3.5,Loan-Type-C,Corporate,2
+AST-006276,IBC Singapore,Singapore,CUS-03594,8909000,GBP,2026-10-03,2031-03-28,6.0892,3.75,Loan-Type-A,SME,4
+AST-006275,IBC UK,London,CUS-00304,3275000,USD,2026-10-02,2027-05-22,6.9882,5.25,Loan-Type-C,Corporate,3
+AST-006274,IBC USA,New York,CUS-04448,2361000,GBP,2026-10-01,2028-07-01,6.8503,5.5,Loan-Type-A,Institutional,5
+AST-006278,IBC HongKong,Hong Kong,CUS-02912,19126000,EUR,2026-10-05,2029-11-02,5.9084,5.25,Loan-Type-C,Institutional,4
+AST-006279,IBC HongKong,Hong Kong,CUS-01534,12144000,EUR,2026-10-06,2029-10-29,4.7989,5.25,Loan-Type-A,Corporate,2
+AST-006283,IBC HongKong,Hong Kong,CUS-00063,8092000,GBP,2026-10-08,2027-06-10,4.7923,5.25,Loan-Type-A,Corporate,1
+AST-999991,IBC HongKong,Hong Kong,CUS-04974,9056000,US,2026-09-30,2030-10-10,4.8554,5.25,Loan-Type-C,Institutional,1
+AST-999992,IBC SA,Paris,CUS-01900,11145000,EUR,2026-10-09,2000-01-01,5.3107,3.5,Loan-Type-C,Corporate,2

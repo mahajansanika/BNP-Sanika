@@ -1,16 +1,15 @@
-"""`historical_log` table — G1 STUB. Owner: Dev 2.
+"""`historical_log` table. Owner: Dev 2. Dev 4 trains on this."""
+from datetime import date
 
-Only the primary key is defined so the table name is reserved, the model is
-importable and `Base.metadata` has no conflicts. Columns are intentionally
-NOT invented here: the owner adds them once the schema is agreed (see
-docs/schema.md). Store money as `Numeric` (Decimal), never Float.
-"""
+from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.db import Base
+from app.models.book_common import BookColumns
 
 
-class HistoricalLog(Base):
+class HistoricalLog(BookColumns, Base):
     __tablename__ = "historical_log"
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    type: Mapped[str] = mapped_column(String(10))                            # Asset | Liability
+    actual_closure_date: Mapped[date | None] = mapped_column(default=None)   # NULL = still open
