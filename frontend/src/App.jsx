@@ -1,25 +1,26 @@
-   import { Link, Navigate, Route, Routes } from 'react-router-dom'
+   import { Navigate, Route, Routes } from 'react-router-dom'
+   import { Layout } from './components/Layout'
    import { AiLadderPage } from './pages/AiLadderPage'
    import { ComparisonPage } from './pages/ComparisonPage'
    import { DeterministicPage } from './pages/DeterministicPage'
    import { LoginPage } from './pages/loginPage'
 
+   function Placeholder({ title }) {
+     return <h1 className="text-xl font-semibold">{title}</h1>
+   }
+
    export default function App() {
      return (
-       <div className="min-h-screen bg-slate-100 p-8">
-         <nav className="mb-6 flex gap-4 text-sm text-teal-700">
-           <Link to="/deterministic">Deterministic</Link>
-           <Link to="/ai">AI</Link>
-           <Link to="/comparison">Comparison</Link>
-           <Link to="/login">Login</Link>
-         </nav>
-         <Routes>
+       <Routes>
+         <Route path="/login" element={<LoginPage />} />
+         <Route element={<Layout />}>
            <Route path="/" element={<Navigate to="/deterministic" replace />} />
-           <Route path="/login" element={<LoginPage />} />
            <Route path="/deterministic" element={<DeterministicPage />} />
            <Route path="/ai" element={<AiLadderPage />} />
            <Route path="/comparison" element={<ComparisonPage />} />
-         </Routes>
-       </div>
+           <Route path="/upload" element={<Placeholder title="Upload (Dev 2)" />} />
+           <Route path="*" element={<Placeholder title="Page not found" />} />
+         </Route>
+       </Routes>
      )
    }
