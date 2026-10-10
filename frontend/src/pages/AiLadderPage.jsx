@@ -1,3 +1,5 @@
-   export function AiLadderPage() {
-     return <h1 className="text-xl font-semibold">AI-adjusted ladder</h1>
-   }
+import { LadderView } from '../components/LadderView'
+
+export function AiLadderPage() {
+  return <LadderView approach="ai" title="AI-adjusted ladder" />
+}
