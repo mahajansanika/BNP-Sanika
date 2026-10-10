@@ -1,0 +1,11 @@
+Transaction_ID,Entity,Type,Location,Transaction_Date,Customer_ID,Customer_Segment,Client_Rating,Amount,Currency,Interest_Rate_Pct,Market_Interest_Rate_Pct,Product_Type,Contractual_Maturity_Date,Actual_Closure_Date
+LIA-000001,IBC USA,Liability,New York,2024-09-17,CUS-00001,Institutional,2,3408000,EUR,2.35,3.5,Product-B,2027-02-05,2025-09-15
+LIA-000002,IBC UK,Liability,London,2021-05-20,CUS-00002,Retail,3,7146000,GBP,3.63,5.25,Product-C,2026-01-20,2025-07-14
+AST-000001,IBC Singapore,Asset,Singapore,2021-06-11,CUS-00003,SME,4,2829000,SGD,5.24,3.75,Loan-Type-D,2026-10-07,2023-12-24
+LIA-000003,IBC SA,Liability,Paris,2015-08-01,CUS-00004,Corporate,5,6648000,HKD,5.6,5.5,Product-E,2022-01-13,2022-01-13
+AST-000002,IBC HongKong,Asset,Hong Kong,2021-11-16,CUS-00005,Institutional,1,6415000,USD,7.71,5.5,Loan-Type-A,2026-02-06,2024-05-30
+LIA-000004,IBC USA,Liability,New York,2015-06-27,CUS-00006,Retail,2,7073000,EUR,2.68,3.5,Product-B,2023-07-22,2023-07-22
+AST-000003,IBC UK,Asset,London,2021-06-03,CUS-00007,SME,3,6133000,GBP,6.42,5.25,Loan-Type-C,2024-01-07,2024-01-07
+LIA-000005,IBC Singapore,Liability,Singapore,2015-08-25,CUS-00008,Corporate,4,1358000,SGD,3.22,3.75,Product-D,2022-12-11,2022-12-11
+LIA-999991,IBC USA,Deposit,New York,2024-09-17,CUS-00001,Institutional,2,3408000,EUR,2.35,3.5,Product-B,2027-02-05,2025-09-15
+LIA-999992,IBC UK,Liability,London,2021-05-20,CUS-00002,Retail,3,0,GBP,3.63,5.25,Product-C,2026-01-20,2025-07-14
