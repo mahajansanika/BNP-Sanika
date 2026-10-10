@@ -1,5 +1,6 @@
 import { FilterBar } from '../components/FilterBar'
 import { useLadder } from '../api/hooks'
+import { LadderChart } from '../components/LadderChart'
 
 export function DeterministicPage() {
   const { data, isLoading, error } = useLadder('deterministic')
@@ -11,11 +12,7 @@ export function DeterministicPage() {
 
       {isLoading && <p className="text-sm text-slate-500">Loading ladder…</p>}
       {error && <p className="text-sm text-red-600">{error.message}</p>}
-      {data && (
-        <pre className="text-xs text-slate-600">
-          {JSON.stringify(data.buckets, null, 2)}
-        </pre>
-      )}
+      {data && <LadderChart data={data} />}
     </div>
   )
 }
