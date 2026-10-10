@@ -33,3 +33,5 @@ frontend/.vite/
 Thumbs.db
 .vscode/
 .idea/
+
+backend/dev.db
