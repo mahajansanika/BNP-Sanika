@@ -2,7 +2,7 @@ import { formatMoney } from '../lib/format'
 
 const th = 'px-3 py-2 font-medium'
 
-export function GapTable({ data }) {
+export function GapTable({ data, onSelect }) {
   return (
     <div className="mt-4 overflow-x-auto rounded-lg border border-slate-200 bg-white">
       <table className="w-full text-sm">
@@ -13,6 +13,7 @@ export function GapTable({ data }) {
             <th className={`${th} text-right`}>Liabilities</th>
             <th className={`${th} text-right`}>Net gap</th>
             <th className={`${th} text-left`}>Position</th>
+            <th className={`${th} text-right`}>Positions</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,15 @@ export function GapTable({ data }) {
                   {formatMoney(b.net_gap, data.currency)}
                 </td>
                 <td className="px-3 py-2">{short ? 'Shortfall' : 'Surplus'}</td>
+                <td className="px-3 py-2 text-right">
+                  <button
+                    onClick={() => onSelect(b.bucket)}
+                    aria-label={`View positions in ${b.bucket}`}
+                    className="rounded-md px-2 py-1 text-teal-800 hover:bg-teal-50"
+                  >
+                    View
+                  </button>
+                </td>
               </tr>
             )
           })}

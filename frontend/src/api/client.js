@@ -1,5 +1,5 @@
 import { loadSession } from '../auth/token'
-import { getMockLadder } from './mockData'
+import { getMockLadder, getMockPositions } from './mockData'
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false'
 const BASE = '/api/v1'
@@ -39,4 +39,13 @@ export async function getLadder(approach, filters) {
   }
   const query = new URLSearchParams(filters).toString()
   return request(`/ladder/${approach}?${query}`)
+}
+
+export async function getPositions(approach, bucket, filters, page, pageSize) {
+  if (USE_MOCK) {
+    await wait(200)
+    return getMockPositions(bucket, { page, page_size: pageSize })
+  }
+  const query = new URLSearchParams({ ...filters, page, page_size: pageSize }).toString()
+  return request(`/ladder/${approach}/${encodeURIComponent(bucket)}/positions?${query}`)
 }

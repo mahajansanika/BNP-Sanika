@@ -44,3 +44,19 @@ export function getMockLadder(approach, query) {
 }
 
 export { BUCKETS }
+
+const POSITIONS_0_1M = [
+  { id: 'P-1001', type: 'asset', product: 'Reverse repo', amount: 4000000, maturity_date: '2026-10-14' },
+  { id: 'P-1002', type: 'asset', product: 'Treasury bill', amount: 3000000, maturity_date: '2026-10-17' },
+  { id: 'P-1003', type: 'asset', product: 'Interbank loan', amount: 2000000, maturity_date: '2026-10-22' },
+  { id: 'P-1004', type: 'asset', product: 'Corporate bond', amount: 1000000, maturity_date: '2026-11-02' },
+  { id: 'P-2001', type: 'liability', product: 'Customer deposit', amount: 3000000, maturity_date: '2026-10-28' },
+  { id: 'P-2002', type: 'liability', product: 'Interbank borrowing', amount: 2000000, maturity_date: '2026-11-05' },
+  { id: 'P-2003', type: 'liability', product: 'Repo', amount: 1000000, maturity_date: '2026-11-08' },
+]
+
+export function getMockPositions(bucket, { page, page_size }) {
+  const all = bucket === '0-1M' ? POSITIONS_0_1M : []
+  const start = (page - 1) * page_size
+  return { bucket, page, page_size, total: all.length, items: all.slice(start, start + page_size) }
+}

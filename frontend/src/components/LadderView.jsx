@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { useLadder } from '../api/hooks'
+import { DrillDownTable } from './DrillDownTable'
 import { FilterBar } from './FilterBar'
 import { GapTable } from './GapTable'
 import { LadderChart } from './LadderChart'
 
 export function LadderView({ approach, title }) {
+  const [selected, setSelected] = useState(null)
   const { data, isLoading, error } = useLadder(approach)
 
   return (
@@ -23,7 +26,16 @@ export function LadderView({ approach, title }) {
             </p>
           )}
           <LadderChart data={data} />
-          <GapTable data={data} />
+          <GapTable data={data} onSelect={setSelected} />
+          {selected && (
+            <DrillDownTable
+              key={selected}
+              approach={approach}
+              bucket={selected}
+              currency={data.currency}
+              onClose={() => setSelected(null)}
+            />
+          )}
         </>
       )}
     </div>
